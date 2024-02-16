@@ -13,6 +13,45 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* App.css */
+.app {
+  display: flex;
+}
+
+.sidebar {
+  width: 200px;
+  background-color: #1a1a1a;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.filters {
+  display: flex;
+  flex-direction: column;
+}
+
+.filter {
+  margin-bottom: 10px;
+}
+
+.filter label {
+  display: flex;
+  align-items: center;
+  color: #fff;
+}
+
+.filter input {
+  margin-right: 8px;
+}
+
+.content {
+  flex: 1;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: #242424;
+  color: #fff;
+}
+
 a {
   font-weight: 500;
   color: #646cff;

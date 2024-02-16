@@ -1,60 +1,79 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from 'react';
+import './App.css';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [filters, setFilters] = useState({
+    filter1: false,
+    filter2: false,
+    filter3: false,
+    filter4: false,
+    filter5: false,
+    filter6: false,
+  });
+
+  const handleFilterChange = (filter) => {
+    setFilters((prevFilters) => ({ ...prevFilters, [filter]: !prevFilters[filter] }));
+  };
 
   return (
-    <>
-      <h1>Mason Hub</h1>
-      <div className="card">
-        <button onClick={() => window.location.href='https://shibboleth.gmu.edu/idp/profile/SAML2/POST/SSO?execution=e1s1'}>
-          Blackboard
-        </button>
-        <button onClick={() => window.location.href='https://shibboleth.gmu.edu/idp/profile/SAML2/POST/SSO?execution=e1s1'}>
-          Blackboard
-        </button>
-        <button onClick={() => window.location.href='https://shibboleth.gmu.edu/idp/profile/SAML2/POST/SSO?execution=e1s1'}>
-          Blackboard
-        </button>
-        <button onClick={() => window.location.href='https://shibboleth.gmu.edu/idp/profile/SAML2/POST/SSO?execution=e1s1'}>
-          Blackboard
-        </button>
-        <button onClick={() => window.location.href='https://shibboleth.gmu.edu/idp/profile/SAML2/POST/SSO?execution=e1s1'}>
-          Blackboard
-        </button>
-        <button onClick={() => window.location.href='https://shibboleth.gmu.edu/idp/profile/SAML2/POST/SSO?execution=e1s1'}>
-          Blackboard
-        </button>
-        <button onClick={() => window.location.href='https://shibboleth.gmu.edu/idp/profile/SAML2/POST/SSO?execution=e1s1'}>
-          Blackboard
-        </button>
-        <button onClick={() => window.location.href='https://shibboleth.gmu.edu/idp/profile/SAML2/POST/SSO?execution=e1s1'}>
-          Blackboard
-        </button>
-        <button onClick={() => window.location.href='https://shibboleth.gmu.edu/idp/profile/SAML2/POST/SSO?execution=e1s1'}>
-          Blackboard
-        </button>
-        <button onClick={() => window.location.href='https://shibboleth.gmu.edu/idp/profile/SAML2/POST/SSO?execution=e1s1'}>
-          Blackboard
-        </button>
-        <button onClick={() => window.location.href='https://shibboleth.gmu.edu/idp/profile/SAML2/POST/SSO?execution=e1s1'}>
-          Blackboard
-        </button>
-        
+    <div className="app">
+      <aside className="sidebar">
+        <h1>Mason Hub</h1>
+        <div className="filters">
+          {Array.from({ length: 6 }, (_, index) => index + 1).map((filterNum) => (
+            <div key={filterNum} className="filter">
+              <label>
+                <input
+                  type="checkbox"
+                  checked={filters[`filter${filterNum}`]}
+                  onChange={() => handleFilterChange(`filter${filterNum}`)}
+                />
+                Filter {filterNum}
+              </label>
+            </div>
+          ))}
+        </div>
+      </aside>
 
+      <div className="content">
+        <h1>Mason Hub</h1>
+        <div className="card">
+          <button onClick={() => window.location.href='https://shibboleth.gmu.edu/idp/profile/SAML2/POST/SSO?execution=e1s1'}>
+            Blackboard
+          </button>
+          <button onClick={() => window.location.href='https://shibboleth.gmu.edu/idp/profile/SAML2/POST/SSO?execution=e1s1'}>
+            Blackboard
+          </button>
+          <button onClick={() => window.location.href='https://shibboleth.gmu.edu/idp/profile/SAML2/POST/SSO?execution=e1s1'}>
+            Blackboard
+          </button>
+          <button onClick={() => window.location.href='https://shibboleth.gmu.edu/idp/profile/SAML2/POST/SSO?execution=e1s1'}>
+            Blackboard
+          </button>
+          <button onClick={() => window.location.href='https://shibboleth.gmu.edu/idp/profile/SAML2/POST/SSO?execution=e1s1'}>
+            Blackboard
+          </button>
+          <button onClick={() => window.location.href='https://shibboleth.gmu.edu/idp/profile/SAML2/POST/SSO?execution=e1s1'}>
+            Blackboard
+          </button>
+          <button onClick={() => window.location.href='https://shibboleth.gmu.edu/idp/profile/SAML2/POST/SSO?execution=e1s1'}>
+            Blackboard
+          </button>
+          <button onClick={() => window.location.href='https://shibboleth.gmu.edu/idp/profile/SAML2/POST/SSO?execution=e1s1'}>
+            Blackboard
+          </button>
 
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
+          <p>
+            Edit <code>src/App.jsx</code> and save to test HMR
+          </p>
+        </div>
       </div>
+
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
-    </>
-  )
+    </div>
+  );
 }
 
-export default App
+export default App;
