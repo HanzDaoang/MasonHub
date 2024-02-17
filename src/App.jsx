@@ -18,7 +18,6 @@ function App() {
   return (
     <div className="app">
       <aside className="sidebar">
-        <h1>Mason Hub</h1>
         <div className="filters">
           {Array.from({ length: 6 }, (_, index) => index + 1).map((filterNum) => (
             <div key={filterNum} className="filter">
@@ -38,8 +37,14 @@ function App() {
       <div className="content">
         <h1>Mason Hub</h1>
         <div className="card">
-          <button onClick={() => window.location.href='https://shibboleth.gmu.edu/idp/profile/SAML2/POST/SSO?execution=e1s1'}>
+          <button onClick={() => window.location.href='https://blackboard.gmu.edu'}>
             Blackboard
+          </button>
+          <button onClick={() => window.location.href='https://https://patriotweb.gmu.edu/'}>
+            PatriotWeb
+          </button>
+          <button onClick={() => window.location.href='https://https://mason360.gmu.edu/home_login'}>
+            Mason360
           </button>
           <button onClick={() => window.location.href='https://shibboleth.gmu.edu/idp/profile/SAML2/POST/SSO?execution=e1s1'}>
             Blackboard
@@ -56,22 +61,8 @@ function App() {
           <button onClick={() => window.location.href='https://shibboleth.gmu.edu/idp/profile/SAML2/POST/SSO?execution=e1s1'}>
             Blackboard
           </button>
-          <button onClick={() => window.location.href='https://shibboleth.gmu.edu/idp/profile/SAML2/POST/SSO?execution=e1s1'}>
-            Blackboard
-          </button>
-          <button onClick={() => window.location.href='https://shibboleth.gmu.edu/idp/profile/SAML2/POST/SSO?execution=e1s1'}>
-            Blackboard
-          </button>
-
-          <p>
-            Edit <code>src/App.jsx</code> and save to test HMR
-          </p>
         </div>
       </div>
-
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </div>
   );
 }
