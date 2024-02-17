@@ -17,7 +17,9 @@ function App() {
   };
 
   return (
-    <div className="app">
+      <div className="content">
+        <h1>Mason Hub</h1>
+            <div className="app">
       <aside className="sidebar">
         <div className="filters">
           {Object.keys(filters).map((filter) => (
@@ -34,9 +36,6 @@ function App() {
           ))}
         </div>
       </aside>
-
-      <div className="content">
-        <h1>Mason Hub</h1>
         <div className="card">
           {filters.showAll && (
             <>
@@ -49,11 +48,11 @@ function App() {
               <button onClick={() => window.location.href='https://https://mason360.gmu.edu/home_login'}>
                 Mason360
               </button>
-              <button onClick={() => window.location.href='https://shibboleth.gmu.edu/idp/profile/SAML2/POST/SSO?execution=e1s1'}>
-                Blackboard
+              <button onClick={() => window.location.href='https://secure.touchnet.com/C20788_tsa/web/login.jsp'}>
+                Touchnet 
               </button>
-              <button onClick={() => window.location.href='https://shibboleth.gmu.edu/idp/profile/SAML2/POST/SSO?execution=e1s1'}>
-                Blackboard
+              <button onClick={() => window.location.href='https://masondining.sodexomyway.com/'}>
+                Dining
               </button>
               <button onClick={() => window.location.href='https://shibboleth.gmu.edu/idp/profile/SAML2/POST/SSO?execution=e1s1'}>
                 Blackboard
