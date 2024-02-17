@@ -40,10 +40,10 @@ function App() {
           <button onClick={() => window.location.href='https://blackboard.gmu.edu'}>
             Blackboard
           </button>
-          <button onClick={() => window.location.href='https://https://patriotweb.gmu.edu/'}>
+          <button onClick={() => window.location.href='https://patriotweb.gmu.edu'}>
             PatriotWeb
           </button>
-          <button onClick={() => window.location.href='https://https://mason360.gmu.edu/home_login'}>
+          <button onClick={() => window.location.href='https://mason360.gmu.edu'}>
             Mason360
           </button>
           <button onClick={() => window.location.href='https://shibboleth.gmu.edu/idp/profile/SAML2/POST/SSO?execution=e1s1'}>
