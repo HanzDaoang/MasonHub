@@ -10,7 +10,7 @@ function App() {
     resources: false,
     finance: false,
     enrollment: false,
-    studentInfo: false
+    studentInfo: false,
   });
 
   const handleFilterChange = (filter) => {
@@ -18,13 +18,6 @@ function App() {
       ...Object.fromEntries(Object.keys(prevFilters).map(key => [key, false])), // Reset all filters
       [filter]: true,
     }));
-  };
-
-  const formatFilterName = (filter) => {
-    if (filter === 'studentInfo') {
-      return filter === 'studentInfo' ? 'Student Info' : filter.replace(/([a-z])([A-Z])/g, '$1 $2').charAt(0).toUpperCase() + filter.slice(1);
-    }
-    return filter === 'showAll' ? 'Show All' : filter.replace(/([a-z])([A-Z])/g, '$1 $2').charAt(0).toUpperCase() + filter.slice(1);
   };
 
   return (
@@ -35,41 +28,47 @@ function App() {
         <h1>Mason Hub</h1>
         <div className="app">
           <aside className="sidebar">
-          <div className="filters">
-        {Object.keys(filters).map((filter) => (
-          <div key={filter} className="filter">
-            <label>
-              <input
-                type="checkbox"
-                checked={filters[filter]}
-                onChange={() => handleFilterChange(filter)}
-              />
-              {formatFilterName(filter)}
-            </label>
-          </div>
-        ))}
-      </div>
+            <div className="filters">
+              {Object.keys(filters).map((filter) => (
+                <div key={filter} className="filter">
+                  <label>
+                    <input
+                      type="checkbox"
+                      checked={filters[filter]}
+                      onChange={() => handleFilterChange(filter)}
+                    />
+                    {filter === 'showAll' ? 'Show All' : filter.charAt(0).toUpperCase() + filter.slice(1)}
+                  </label>
+                </div>
+              ))}
+            </div>
           </aside>
         <div className="card">
           {filters.showAll && (
             <>
               <button onClick={() => window.location.href='https://blackboard.gmu.edu'}>
-              Blackboard
+              <img src="src\assets\Blackboard.jpg" alt="Blackboard" style={{ maxWidth: '100%', maxHeight: '100%', marginRight: '5px' }} />
+  <span style={{ maxWidth: 'calc(100% - 24px)' }}>Blackboard</span>
               </button>
               <button onClick={() => window.location.href='https://https://patriotweb.gmu.edu/'}>
-                PatriotWeb
+              <img src="src\assets\PatriotWeb.jpg" alt="Patriot Web" style={{ maxWidth: '100%', maxHeight: '100%', marginRight: '5px' }} />
+  <span style={{ maxWidth: 'calc(100% - 24px)' }}>PatriotWeb</span>
               </button>
               <button onClick={() => window.location.href='https://https://mason360.gmu.edu/home_login'}>
-                Mason360
+              <img src="src\assets\Mason360.png" alt="Mason 360" style={{ maxWidth: '100%', maxHeight: '100%', marginRight: '5px' }} />
+  <span style={{ maxWidth: 'calc(100% - 24px)' }}>Mason360</span>
               </button>
               <button onClick={() => window.location.href='https://secure.touchnet.com/C20788_tsa/web/login.jsp'}>
-                Touchnet 
+              <img src="src/assets/Touchnet.jpg" alt="Touchnet Icon" style={{ maxWidth: '100%', maxHeight: '110%', marginRight: '5px' }} />
+  <span style={{ maxWidth: 'calc(100% - 24px)' }}>Touchnet</span>
               </button>
               <button onClick={() => window.location.href='https://masondining.sodexomyway.com/'}>
-                Dining
+              <img src="src\assets\MDining.jpg" alt="Dining" style={{ maxWidth: '100%', maxHeight: '125%', marginRight: '5px' }} />
+  <span style={{ maxWidth: 'calc(100% - 24px)' }}>Dining</span>
               </button>
               <button onClick={() => window.location.href='https://shibboleth.gmu.edu/idp/profile/SAML2/POST/SSO?execution=e1s1'}>
-                Blackboard
+              <img src="src\assets\masonLogo.png" alt="Mason Logo Icon" style={{ maxWidth: '100%', maxHeight: '100%', marginRight: '5px' }} />
+  <span style={{ maxWidth: 'calc(100% - 24px)' }}>Mason Website</span>
               </button>
               <button onClick={() => window.location.href='https://shibboleth.gmu.edu/idp/profile/SAML2/POST/SSO?execution=e1s1'}>
                 Blackboard
@@ -81,42 +80,42 @@ function App() {
           )}
           {filters.finance && (
             <>
-            <button onClick={() => window.location.href='https://blackboard.gmu.edu'}>
+            <button onClick={() => window.location.href='https://blackboard.gmu.edu%27%7D%3E/'}>
             Blackboard
             </button>
           </>
           )}
           {filters.academics && (
             <>
-            <button onClick={() => window.location.href='https://blackboard.gmu.edu'}>
+            <button onClick={() => window.location.href='https://blackboard.gmu.edu%27%7D%3E/'}>
             Blackboard
             </button>
           </>
           )}
           {filters.resources && (
             <>
-            <button onClick={() => window.location.href='https://https://patriotweb.gmu.edu/'}>
+            <button onClick={() => window.location.href='https://https//patriotweb.gmu.edu/'}>
               PatriotWeb
             </button>
           </>
           )}
           {filters.extracurriculars && (
             <>
-            <button onClick={() => window.location.href='https://https://mason360.gmu.edu/home_login'}>
+            <button onClick={() => window.location.href='https://https//mason360.gmu.edu/home_login'}>
               Mason360
             </button>
           </>
           )}
           {filters.enrollment && (
             <>
-            <button onClick={() => window.location.href='https://blackboard.gmu.edu'}>
+            <button onClick={() => window.location.href='https://blackboard.gmu.edu%27%7D%3E/'}>
             Blackboard
             </button>
           </>
           )}
           {filters.studentInfo && (
             <>
-            <button onClick={() => window.location.href='https://blackboard.gmu.edu'}>
+            <button onClick={() => window.location.href='https://blackboard.gmu.edu%27%7D%3E/'}>
             Blackboard
             </button>
           </>
