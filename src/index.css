@@ -97,6 +97,19 @@ h1 {
   transition: background-color 0.25s, box-shadow 0.3s, transform 0.4s; /* Include transform in the transition */
 }
 
+.button-container {
+  width: 130px;
+  height: 180px;
+  text-align: center; /* Center the button and text horizontally */
+}
+
+.button-text {
+  position: relative;
+  bottom: 1%; /* Adjust the percentage value to position it above the bottom of button-container */
+  font-size: 0.8em;
+  color: #000000;
+}
+
 .dropbtn {
   background-color: #000000;
   color: rgb(255, 255, 255);
@@ -147,7 +160,6 @@ button:hover {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add shadow */
   transition: all 0.3s ease; /* Add transition for smoothness */
 }
-
 .dropdown {
   position: relative;
 }

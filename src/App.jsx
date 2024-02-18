@@ -126,44 +126,65 @@ function App() {
         	<div className="card">
           	{filters.showAll && (
             	<>
-								<button className="mainBtn" onClick={() => window.location.href='https://blackboard.gmu.edu'}>
-									<img src="src\assets\Blackboard.jpg" alt="Blackboard" style={{ maxWidth: '100%', maxHeight: '110%', marginTop: 10, marginBottom: 10 }} />
-									<span style={{ maxWidth: 'calc(100% - 24px)' }}>Blackboard</span>
-								</button>
-								<button className="mainBtn" onClick={() => window.location.href='https://https://patriotweb.gmu.edu/'}>
-									<img src="src\assets\PatriotWeb.jpg" alt="Patriot Web" style={{ maxWidth: '100%', maxHeight: '100%', marginTop: 9, marginBottom: 8 }} />
-									<span style={{ maxWidth: 'calc(100% - 24px)' }}>PatriotWeb</span>
-								</button>
-								<button className="mainBtn" onClick={() => window.location.href='https://https://mason360.gmu.edu/home_login'}>
-									<img src="src\assets\Mason360.png" alt="Mason 360" style={{ maxWidth: '120%', maxHeight: '120%', marginLeft: -8, marginBottom: 7 }} />
-									<span style={{ maxWidth: 'calc(100% - 24px)' }}>Mason360</span>
-								</button>
-								<button className="mainBtn" onClick={() => window.location.href='https://secure.touchnet.com/C20788_tsa/web/login.jsp'}>
-									<img src="src/assets/Touchnet.jpg" alt="Touchnet Icon" style={{ maxWidth: '100%', maxHeight: '120%', marginTop: 10, marginBottom: 21 }} />
-									<span style={{ maxWidth: 'calc(150% - 24px)' }}>Touchnet</span>
-								</button>
-								<button className="mainBtn" onClick={() => window.location.href='https://masondining.sodexomyway.com/'}>
-									<img src="src\assets\MDining.jpg" alt="Dining" style={{ maxWidth: '100%', maxHeight: '100%' }} />
-									<span style={{ maxWidth: 'calc(100%)' }}>MasonDining</span>
-								</button>
-								<button className="mainBtn" onClick={() => window.location.href='https://shibboleth.gmu.edu/idp/profile/SAML2/POST/SSO?execution=e1s1'}>
-									<img src="src\assets\masonLogo.png" alt="Mason Logo Icon" style={{ maxWidth: '100%', maxHeight: '100%', marginTop: 10, marginBottom: 16 }} />
-									<span style={{ maxWidth: 'calc(100% - 24px)' }}>MasonWeb</span>
-								</button>
-								<button className="mainBtn" onClick={() => window.location.href='https://app.joinhandshake.com/'}>
-									<img src="src\assets\Handshake.jpg" alt="Handshake Icon" style={{ maxWidth: '100%', maxHeight: '100%', marginTop: 10, marginBottom: 7 }} />
-									<span style={{ maxWidth: 'calc(100% - 24px)' }}>Handshake</span>
-								</button>
-								<button className="mainBtn" onClick={() => window.location.href='https://shibboleth.gmu.edu/idp/profile/SAML2/POST/SSO?execution=e1s1'}>
-									Blackboard
-								</button>
+								
+								<div class="button-container">
+									<button className="mainBtn" onClick={() => window.location.href='https://blackboard.gmu.edu'}> 
+										<img src="src\assets\Blackboard.jpg" alt="Blackboard" style={{ maxWidth: '100%', maxHeight: '110%', marginTop: 10, marginBottom: 10 }} />
+									</button>
+									<p class="button-text">Blackboard</p>
+								</div>
+								
+								<div class="button-container">
+									<button className="mainBtn" onClick={() => window.location.href='https://https://patriotweb.gmu.edu/'}>
+										<img src="src\assets\PatriotWeb.jpg" alt="Patriot Web" style={{ maxWidth: '100%', maxHeight: '100%', marginTop: 9, marginBottom: 8 }} />
+									</button>
+									<p class="button-text">PatriotWeb</p>
+								</div>
+
+								<div class="button-container">
+									<button className="mainBtn" onClick={() => window.location.href='https://https://mason360.gmu.edu/home_login'}>
+										<img src="src\assets\Mason360.png" alt="Mason 360" style={{ maxWidth: '120%', maxHeight: '120%', marginLeft: -8, marginBottom: 7 }} />
+									</button>
+									<p class="button-text">PatriotWeb</p>
+								</div>
+
+								<div class="button-container">
+									<button className="mainBtn" onClick={() => window.location.href='https://secure.touchnet.com/C20788_tsa/web/login.jsp'}>
+										<img src="src/assets/Touchnet.jpg" alt="Touchnet Icon" style={{ maxWidth: '100%', maxHeight: '120%', marginTop: 10, marginBottom: 21 }} />
+									</button>
+									<p class="button-text">TouchNet</p>
+								</div>
+
+								<div class="button-container">
+									<button className="mainBtn" onClick={() => window.location.href='https://masondining.sodexomyway.com/'}>
+										<img src="src\assets\MDining.jpg" alt="Dining" style={{ maxWidth: '100%', maxHeight: '100%' }} />
+									</button>
+									<p class="button-text">Mason Dining</p>
+								</div>
+
+								<div class="button-container">
+									<button className="mainBtn" onClick={() => window.location.href='https://shibboleth.gmu.edu/idp/profile/SAML2/POST/SSO?execution=e1s1'}>
+										<img src="src\assets\masonLogo.png" alt="Mason Logo Icon" style={{ maxWidth: '100%', maxHeight: '100%', marginTop: 10, marginBottom: 16 }} />
+									</button>
+									<p class="button-text">PatriotWeb</p>
+								</div>
+								<div class="button-container">
+									<button className="mainBtn" onClick={() => window.location.href='https://app.joinhandshake.com/'}>
+										<img src="src\assets\Handshake.jpg" alt="Handshake Icon" style={{ maxWidth: '100%', maxHeight: '100%', marginTop: 10, marginBottom: 7 }} />
+									</button>
+									<p class="button-text">PatriotWeb</p>
+								</div>
+								
 							</>
           	)}
 						{filters.finance && (
 							<>
-							<button className="mainBtn" onClick={() => window.location.href='https://blackboard.gmu.edu'}>
-								Blackboard
-							</button>
+							<div class="button-container">
+									<button className="mainBtn" onClick={() => window.location.href='https://blackboard.gmu.edu'}> 
+										<img src="src\assets\Blackboard.jpg" alt="Blackboard" style={{ maxWidth: '100%', maxHeight: '110%', marginTop: 10, marginBottom: 10 }} />
+									</button>
+									<p class="button-text">Blackboard</p>
+								</div>
 							</>
 						)}
 						{filters.academics && (
