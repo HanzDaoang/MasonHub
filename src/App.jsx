@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './App.css';
+import TwitterFeed from './TwitterFeed';
 
 function App() {
   const [filters, setFilters] = useState({
@@ -18,24 +19,27 @@ function App() {
 
   return (
       <div className="content">
-        <h1>Mason Hub</h1>
-            <div className="app">
-      <aside className="sidebar">
-        <div className="filters">
-          {Object.keys(filters).map((filter) => (
-            <div key={filter} className="filter">
-              <label>
-                <input
-                  type="checkbox"
-                  checked={filters[filter]}
-                  onChange={() => handleFilterChange(filter)}
-                />
-                {filter === 'showAll' ? 'Show All' : filter.charAt(0).toUpperCase() + filter.slice(1)}
-              </label>
-            </div>
-          ))}
+        <div className="twitter">
+          <TwitterFeed />
         </div>
-      </aside>
+        <h1>Mason Hub</h1>
+        <div className="app">
+          <aside className="sidebar">
+            <div className="filters">
+              {Object.keys(filters).map((filter) => (
+                <div key={filter} className="filter">
+                  <label>
+                    <input
+                      type="checkbox"
+                      checked={filters[filter]}
+                      onChange={() => handleFilterChange(filter)}
+                    />
+                    {filter === 'showAll' ? 'Show All' : filter.charAt(0).toUpperCase() + filter.slice(1)}
+                  </label>
+                </div>
+              ))}
+            </div>
+          </aside>
         <div className="card">
           {filters.showAll && (
             <>
