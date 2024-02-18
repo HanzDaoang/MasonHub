@@ -15,7 +15,7 @@ const TwitterFeed = () => {
 
     return (
         <div id="twitter">
-            <a className="twitter-timeline" data-width="250" data-height="350" data-theme="dark" href="https://twitter.com/GeorgeMasonU?ref_src=twsrc%5Etfw">
+            <a className="twitter-timeline" data-width="400" data-height="350" data-theme="dark" href="https://twitter.com/GeorgeMasonU?ref_src=twsrc%5Etfw">
                 Tweets by GeorgeMasonU
             </a>
         </div>
