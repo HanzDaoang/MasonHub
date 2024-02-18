@@ -129,28 +129,28 @@ function App() {
 								
 								<div class="button-container">
 									<button className="mainBtn" onClick={() => window.location.href='https://blackboard.gmu.edu'}> 
-										<img src="src\assets\Blackboard.jpg" alt="Blackboard" style={{ maxWidth: '100%', maxHeight: '110%', marginTop: 10, marginBottom: 10 }} />
+										<img src="src\assets\Blackboard.jpg" alt="Blackboard" style={{ maxWidth: '100%', maxHeight: '100%', }} />
 									</button>
 									<p class="button-text">Blackboard</p>
 								</div>
 								
 								<div class="button-container">
 									<button className="mainBtn" onClick={() => window.location.href='https://https://patriotweb.gmu.edu/'}>
-										<img src="src\assets\PatriotWeb.jpg" alt="Patriot Web" style={{ maxWidth: '100%', maxHeight: '100%', marginTop: 9, marginBottom: 8 }} />
+										<img src="src\assets\PatriotWeb.jpg" alt="Patriot Web" style={{ maxWidth: '100%', maxHeight: '100%', }} />
 									</button>
 									<p class="button-text">PatriotWeb</p>
 								</div>
 
 								<div class="button-container">
 									<button className="mainBtn" onClick={() => window.location.href='https://https://mason360.gmu.edu/home_login'}>
-										<img src="src\assets\Mason360.png" alt="Mason 360" style={{ maxWidth: '120%', maxHeight: '120%', marginLeft: -8, marginBottom: 7 }} />
+										<img src="src\assets\Mason360.png" alt="Mason 360" style={{ maxWidth: '100%', maxHeight: '100%',}} />
 									</button>
-									<p class="button-text">PatriotWeb</p>
+									<p class="button-text">Mason360</p>
 								</div>
 
 								<div class="button-container">
 									<button className="mainBtn" onClick={() => window.location.href='https://secure.touchnet.com/C20788_tsa/web/login.jsp'}>
-										<img src="src/assets/Touchnet.jpg" alt="Touchnet Icon" style={{ maxWidth: '100%', maxHeight: '120%', marginTop: 10, marginBottom: 21 }} />
+										<img src="src/assets/Touchnet.jpg" alt="Touchnet Icon" style={{ maxWidth: '100%', maxHeight: '100%', }} />
 									</button>
 									<p class="button-text">TouchNet</p>
 								</div>
@@ -164,62 +164,89 @@ function App() {
 
 								<div class="button-container">
 									<button className="mainBtn" onClick={() => window.location.href='https://shibboleth.gmu.edu/idp/profile/SAML2/POST/SSO?execution=e1s1'}>
-										<img src="src\assets\masonLogo.png" alt="Mason Logo Icon" style={{ maxWidth: '100%', maxHeight: '100%', marginTop: 10, marginBottom: 16 }} />
+										<img src="src\assets\masonLogo.png" alt="Mason Logo Icon" style={{ maxWidth: '100%', maxHeight: '100%', }} />
 									</button>
-									<p class="button-text">PatriotWeb</p>
+									<p class="button-text">Mason Website</p>
 								</div>
 								<div class="button-container">
 									<button className="mainBtn" onClick={() => window.location.href='https://app.joinhandshake.com/'}>
-										<img src="src\assets\Handshake.jpg" alt="Handshake Icon" style={{ maxWidth: '100%', maxHeight: '100%', marginTop: 10, marginBottom: 7 }} />
+										<img src="src\assets\Handshake.jpg" alt="Handshake Icon" style={{ maxWidth: '100%', maxHeight: '100%', }} />
 									</button>
-									<p class="button-text">PatriotWeb</p>
+									<p class="button-text">Handshake</p>
 								</div>
 								
 							</>
           	)}
 						{filters.finance && (
 							<>
-							<div class="button-container">
-									<button className="mainBtn" onClick={() => window.location.href='https://blackboard.gmu.edu'}> 
-										<img src="src\assets\Blackboard.jpg" alt="Blackboard" style={{ maxWidth: '100%', maxHeight: '110%', marginTop: 10, marginBottom: 10 }} />
+								<div class="button-container">
+									<button className="mainBtn" onClick={() => window.location.href='https://secure.touchnet.com/C20788_tsa/web/login.jsp'}>
+										<img src="src/assets/Touchnet.jpg" alt="Touchnet Icon" style={{ maxWidth: '100%', maxHeight: '100%', }} />
 									</button>
-									<p class="button-text">Blackboard</p>
+									<p class="button-text">TouchNet</p>
+								</div>
+								<div class="button-container">
+									<button className="mainBtn" onClick={() => window.location.href='https://https://patriotweb.gmu.edu/'}>
+										<img src="src\assets\PatriotWeb.jpg" alt="Patriot Web" style={{ maxWidth: '100%', maxHeight: '100%', }} />
+									</button>
+									<p class="button-text">PatriotWeb</p>
 								</div>
 							</>
 						)}
 						{filters.academics && (
 							<>
-							<button className="mainBtn" onClick={() => window.location.href='https://blackboard.gmu.edu'}>
-								Blackboard
-							</button>
+								<div class="button-container">
+									<button className="mainBtn" onClick={() => window.location.href='https://blackboard.gmu.edu'}> 
+										<img src="src\assets\Blackboard.jpg" alt="Blackboard" style={{ maxWidth: '100%', maxHeight: '100%', }} />
+									</button>
+									<p class="button-text">Blackboard</p>
+								</div>
+								<div class="button-container">
+									<button className="mainBtn" onClick={() => window.location.href='https://https://patriotweb.gmu.edu/'}>
+										<img src="src\assets\PatriotWeb.jpg" alt="Patriot Web" style={{ maxWidth: '100%', maxHeight: '100%', }} />
+									</button>
+									<p class="button-text">PatriotWeb</p>
+								</div>
 						</>
 						)}
 						{filters.resources && (
 							<>
-							<button className="mainBtn" onClick={() => window.location.href='https://https://mason360.gmu.edu/home_login'}>
-								Mason360
-							</button>
+								<div class="button-container">
+									<button className="mainBtn" onClick={() => window.location.href='https://masondining.sodexomyway.com/'}>
+										<img src="src\assets\MDining.jpg" alt="Dining" style={{ maxWidth: '100%', maxHeight: '100%' }} />
+									</button>
+									<p class="button-text">Mason Dining</p>
+								</div>
 						</>
 						)}
 						{filters.extracurriculars && (
 							<>
-							<button className="mainBtn" onClick={() => window.location.href='https://https://patriotweb.gmu.edu/'}>
-								PatriotWeb
-							</button>
+							<div class="button-container">
+								<button className="mainBtn" onClick={() => window.location.href='https://https://mason360.gmu.edu/home_login'}>
+										<img src="src\assets\Mason360.png" alt="Mason 360" style={{ maxWidth: '100%', maxHeight: '100%',}} />
+								</button>
+									<p class="button-text">Mason360</p>
+							</div>
 						</>
 						)}
 						{filters.enrollment && (
 							<>
-							<button className="mainBtn" onClick={() => window.location.href='https://blackboard.gmu.edu'}>
-								Blackboard
-							</button>
+								<div class="button-container">
+									<button className="mainBtn" onClick={() => window.location.href='https://https://patriotweb.gmu.edu/'}>
+										<img src="src\assets\PatriotWeb.jpg" alt="Patriot Web" style={{ maxWidth: '100%', maxHeight: '100%', }} />
+									</button>
+									<p class="button-text">PatriotWeb</p>
+								</div>
 						</>
 						)}
 						{filters.studentInfo && (
 							<>
-							<button className="mainBtn" onClick={() => window.location.href='https://blackboard.gmu.edu'}>
-								Blackboard
-							</button>
+								<div class="button-container">
+									<button className="mainBtn" onClick={() => window.location.href='https://https://patriotweb.gmu.edu/'}>
+										<img src="src\assets\PatriotWeb.jpg" alt="Patriot Web" style={{ maxWidth: '100%', maxHeight: '100%', }} />
+									</button>
+									<p class="button-text">PatriotWeb</p>
+								</div>
 						</>
 						)}
         	</div>
