@@ -107,6 +107,13 @@ function App() {
             </button>
           </>
           )}
+          {filters.enrollment && (
+            <>
+            <button onClick={() => window.location.href='https://blackboard.gmu.edu'}>
+            Blackboard
+            </button>
+          </>
+          )}
           {filters.studentInfo && (
             <>
             <button onClick={() => window.location.href='https://blackboard.gmu.edu'}>
