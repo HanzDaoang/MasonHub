@@ -131,7 +131,21 @@ button:hover {
   justify-content: center;
   align-items: center;
   gap: 6rem;
-  background-color: #1a1a1a;
+  background-color: #494949;
+}
+
+.top-bar button {
+  background-color: #494949; /* Green background */
+  border: none; /* Remove border */
+  color: white; /* White text */
+  padding: 10px 24px; /* Padding */
+  text-align: center; /* Center text */
+  text-decoration: none; /* Remove underline */
+  display: inline-block;
+  font-size: 16px; /* Font size */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add shadow */
+  transition: all 0.3s ease; /* Add transition for smoothness */
 }
 
 .dropdown {
