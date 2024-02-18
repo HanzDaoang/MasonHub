@@ -6,10 +6,11 @@ function App() {
   const [filters, setFilters] = useState({
     showAll: true,
     academics: false,
-    opportunities: false,
+    extracurriculars: false,
     resources: false,
     finance: false,
-    enrollment: false
+    enrollment: false,
+    studentInfo: false
   });
 
   const handleFilterChange = (filter) => {
@@ -17,6 +18,13 @@ function App() {
       ...Object.fromEntries(Object.keys(prevFilters).map(key => [key, false])), // Reset all filters
       [filter]: true,
     }));
+  };
+
+  const formatFilterName = (filter) => {
+    if (filter === 'studentInfo') {
+      return filter === 'studentInfo' ? 'Student Info' : filter.replace(/([a-z])([A-Z])/g, '$1 $2').charAt(0).toUpperCase() + filter.slice(1);
+    }
+    return filter === 'showAll' ? 'Show All' : filter.replace(/([a-z])([A-Z])/g, '$1 $2').charAt(0).toUpperCase() + filter.slice(1);
   };
 
   return (
@@ -27,20 +35,20 @@ function App() {
         <h1>Mason Hub</h1>
         <div className="app">
           <aside className="sidebar">
-            <div className="filters">
-              {Object.keys(filters).map((filter) => (
-                <div key={filter} className="filter">
-                  <label>
-                    <input
-                      type="checkbox"
-                      checked={filters[filter]}
-                      onChange={() => handleFilterChange(filter)}
-                    />
-                    {filter === 'showAll' ? 'Show All' : filter.charAt(0).toUpperCase() + filter.slice(1)}
-                  </label>
-                </div>
-              ))}
-            </div>
+          <div className="filters">
+        {Object.keys(filters).map((filter) => (
+          <div key={filter} className="filter">
+            <label>
+              <input
+                type="checkbox"
+                checked={filters[filter]}
+                onChange={() => handleFilterChange(filter)}
+              />
+              {formatFilterName(filter)}
+            </label>
+          </div>
+        ))}
+      </div>
           </aside>
         <div className="card">
           {filters.showAll && (
@@ -92,14 +100,14 @@ function App() {
             </button>
           </>
           )}
-          {filters.opportunities && (
+          {filters.extracurriculars && (
             <>
             <button onClick={() => window.location.href='https://https://mason360.gmu.edu/home_login'}>
               Mason360
             </button>
           </>
           )}
-          {filters.enrollment && (
+          {filters.studentInfo && (
             <>
             <button onClick={() => window.location.href='https://blackboard.gmu.edu'}>
             Blackboard
