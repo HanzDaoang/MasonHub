@@ -5,11 +5,12 @@ import TwitterFeed from './TwitterFeed';
 function App() {
   const [filters, setFilters] = useState({
     showAll: true,
+		finance: false,
     academics: false,
-    opportunities: false,
-    resources: false,
-    finance: false,
-    enrollment: false
+		resources: false,
+    extracurriculars: false,
+    enrollment: false,
+		studentInfo: false
   });
 
   function handleFilterChange(filter) {
@@ -19,12 +20,18 @@ function App() {
     }));
   }
 
-
+	const formatFilterName = (filter) => {
+		if (filter === 'studentInfo') {
+			return filter === 'studentInfo' ? 'Student Info' : filter.replace(/([a-z])([A-Z])/g, '$1 $2').charAt(0).toUpperCase() + filter.slice(1);
+		}
+		return filter === 'showAll' ? 'Show All' : filter.replace(/([a-z])([A-Z])/g, '$1 $2').charAt(0).toUpperCase() + filter.slice(1);
+	}
   
   return (
     <div>
-      <h1>Mason Hub</h1>
-
+			<div className='Header'>
+				<h1>Mason Hub</h1>
+			</div>
       <div className="top-bar">
         <div className="dropdown">
           <button className="dropbtn" onClick={() => handleFilterChange('finance')}>Finance</button>
@@ -94,97 +101,110 @@ function App() {
         </div>
       </div>
 
-    <div className="app">
-      <aside className="sidebar">
-        <div className="filters">
-          {Object.keys(filters).map((filter) => (
-            <div key={filter} className="filter">
-              <label>
-                <input
-                  type="checkbox"
-                  checked={filters[filter]}
-                  onChange={() => handleFilterChange(filter)}
-                />
-                {filter === 'showAll' ? 'Show All' : filter.charAt(0).toUpperCase() + filter.slice(1)}
-              </label>
-            </div>
-          ))}
-        </div>
-      </aside>
+    	<div className="app">
+      	<aside className="sidebar">
+        	<div className="filters">
+          	{Object.keys(filters).map((filter) => (
+            	<div key={filter} className="filter">
+              	<label>
+                	<input
+                  	type="checkbox"
+                  	checked={filters[filter]}
+                  	onChange={() => handleFilterChange(filter)}
+                	/>
+                	{formatFilterName(filter)}
+              	</label>
+            	</div>
+          	))}
+        	</div>
+      	</aside>
 
-      <div className="content">
-      <div className="twitter">
-          <TwitterFeed />
-        </div>
-        <div className="card">
-          {filters.showAll && (
-            <>
-<button className="mainBtn" onClick={() => window.location.href='https://blackboard.gmu.edu'}>
-    <img src="src\assets\Blackboard.jpg" alt="Blackboard" style={{ maxWidth: '100%', maxHeight: '110%', marginTop: 10, marginBottom: 10 }} />
-    <span style={{ maxWidth: 'calc(100% - 24px)' }}>Blackboard</span>
-</button>
-<button className="mainBtn" onClick={() => window.location.href='https://https://patriotweb.gmu.edu/'}>
-    <img src="src\assets\PatriotWeb.jpg" alt="Patriot Web" style={{ maxWidth: '100%', maxHeight: '100%', marginTop: 9, marginBottom: 8 }} />
-    <span style={{ maxWidth: 'calc(100% - 24px)' }}>PatriotWeb</span>
-</button>
-<button className="mainBtn" onClick={() => window.location.href='https://https://mason360.gmu.edu/home_login'}>
-    <img src="src\assets\Mason360.png" alt="Mason 360" style={{ maxWidth: '120%', maxHeight: '120%', marginLeft: -8, marginBottom: 7 }} />
-    <span style={{ maxWidth: 'calc(100% - 24px)' }}>Mason360</span>
-</button>
-<button className="mainBtn" onClick={() => window.location.href='https://secure.touchnet.com/C20788_tsa/web/login.jsp'}>
-    <img src="src/assets/Touchnet.jpg" alt="Touchnet Icon" style={{ maxWidth: '100%', maxHeight: '120%', marginTop: 10, marginBottom: 21 }} />
-    <span style={{ maxWidth: 'calc(150% - 24px)' }}>Touchnet</span>
-</button>
-<button className="mainBtn" onClick={() => window.location.href='https://masondining.sodexomyway.com/'}>
-    <img src="src\assets\MDining.jpg" alt="Dining" style={{ maxWidth: '100%', maxHeight: '100%' }} />
-    <span style={{ maxWidth: 'calc(100%)' }}>MasonDining</span>
-</button>
-<button className="mainBtn" onClick={() => window.location.href='https://shibboleth.gmu.edu/idp/profile/SAML2/POST/SSO?execution=e1s1'}>
-    <img src="src\assets\masonLogo.png" alt="Mason Logo Icon" style={{ maxWidth: '100%', maxHeight: '100%', marginTop: 10, marginBottom: 16 }} />
-    <span style={{ maxWidth: 'calc(100% - 24px)' }}>MasonWeb</span>
-</button>
-<button className="mainBtn" onClick={() => window.location.href='https://app.joinhandshake.com/'}>
-    <img src="src\assets\Handshake.jpg" alt="Handshake Icon" style={{ maxWidth: '100%', maxHeight: '100%', marginTop: 10, marginBottom: 7 }} />
-    <span style={{ maxWidth: 'calc(100% - 24px)' }}>Handshake</span>
-</button>
-<button className="mainBtn" onClick={() => window.location.href='https://shibboleth.gmu.edu/idp/profile/SAML2/POST/SSO?execution=e1s1'}>
-    Blackboard
-</button>
-</>
-
-          )}
-          {filters.academics && (
-            <>
-            <button onClick={() => window.location.href='https://blackboard.gmu.edu'}>
-            Blackboard
-            </button>
-          </>
-          )}
-          {filters.opportunities && (
-            <>
-            <button onClick={() => window.location.href='https://https://patriotweb.gmu.edu/'}>
-              PatriotWeb
-            </button>
-          </>
-          )}
-          {filters.resources && (
-            <>
-            <button onClick={() => window.location.href='https://https://mason360.gmu.edu/home_login'}>
-              Mason360
-            </button>
-          </>
-          )}
-          {filters.enrollment && (
-            <>
-            <button onClick={() => window.location.href='https://blackboard.gmu.edu'}>
-            Blackboard
-            </button>
-          </>
-          )}
-        </div>
-      </div>
-    </div>
-  </div>
+      	<div className="content">
+      		<div className="twitter">
+          	<TwitterFeed />
+        	</div>
+        	<div className="card">
+          	{filters.showAll && (
+            	<>
+								<button className="mainBtn" onClick={() => window.location.href='https://blackboard.gmu.edu'}>
+									<img src="src\assets\Blackboard.jpg" alt="Blackboard" style={{ maxWidth: '100%', maxHeight: '110%', marginTop: 10, marginBottom: 10 }} />
+									<span style={{ maxWidth: 'calc(100% - 24px)' }}>Blackboard</span>
+								</button>
+								<button className="mainBtn" onClick={() => window.location.href='https://https://patriotweb.gmu.edu/'}>
+									<img src="src\assets\PatriotWeb.jpg" alt="Patriot Web" style={{ maxWidth: '100%', maxHeight: '100%', marginTop: 9, marginBottom: 8 }} />
+									<span style={{ maxWidth: 'calc(100% - 24px)' }}>PatriotWeb</span>
+								</button>
+								<button className="mainBtn" onClick={() => window.location.href='https://https://mason360.gmu.edu/home_login'}>
+									<img src="src\assets\Mason360.png" alt="Mason 360" style={{ maxWidth: '120%', maxHeight: '120%', marginLeft: -8, marginBottom: 7 }} />
+									<span style={{ maxWidth: 'calc(100% - 24px)' }}>Mason360</span>
+								</button>
+								<button className="mainBtn" onClick={() => window.location.href='https://secure.touchnet.com/C20788_tsa/web/login.jsp'}>
+									<img src="src/assets/Touchnet.jpg" alt="Touchnet Icon" style={{ maxWidth: '100%', maxHeight: '120%', marginTop: 10, marginBottom: 21 }} />
+									<span style={{ maxWidth: 'calc(150% - 24px)' }}>Touchnet</span>
+								</button>
+								<button className="mainBtn" onClick={() => window.location.href='https://masondining.sodexomyway.com/'}>
+									<img src="src\assets\MDining.jpg" alt="Dining" style={{ maxWidth: '100%', maxHeight: '100%' }} />
+									<span style={{ maxWidth: 'calc(100%)' }}>MasonDining</span>
+								</button>
+								<button className="mainBtn" onClick={() => window.location.href='https://shibboleth.gmu.edu/idp/profile/SAML2/POST/SSO?execution=e1s1'}>
+									<img src="src\assets\masonLogo.png" alt="Mason Logo Icon" style={{ maxWidth: '100%', maxHeight: '100%', marginTop: 10, marginBottom: 16 }} />
+									<span style={{ maxWidth: 'calc(100% - 24px)' }}>MasonWeb</span>
+								</button>
+								<button className="mainBtn" onClick={() => window.location.href='https://app.joinhandshake.com/'}>
+									<img src="src\assets\Handshake.jpg" alt="Handshake Icon" style={{ maxWidth: '100%', maxHeight: '100%', marginTop: 10, marginBottom: 7 }} />
+									<span style={{ maxWidth: 'calc(100% - 24px)' }}>Handshake</span>
+								</button>
+								<button className="mainBtn" onClick={() => window.location.href='https://shibboleth.gmu.edu/idp/profile/SAML2/POST/SSO?execution=e1s1'}>
+									Blackboard
+								</button>
+							</>
+          	)}
+						{filters.finance && (
+							<>
+							<button className="mainBtn" onClick={() => window.location.href='https://blackboard.gmu.edu'}>
+								Blackboard
+							</button>
+							</>
+						)}
+						{filters.academics && (
+							<>
+							<button className="mainBtn" onClick={() => window.location.href='https://blackboard.gmu.edu'}>
+								Blackboard
+							</button>
+						</>
+						)}
+						{filters.resources && (
+							<>
+							<button className="mainBtn" onClick={() => window.location.href='https://https://mason360.gmu.edu/home_login'}>
+								Mason360
+							</button>
+						</>
+						)}
+						{filters.extracurriculars && (
+							<>
+							<button className="mainBtn" onClick={() => window.location.href='https://https://patriotweb.gmu.edu/'}>
+								PatriotWeb
+							</button>
+						</>
+						)}
+						{filters.enrollment && (
+							<>
+							<button className="mainBtn" onClick={() => window.location.href='https://blackboard.gmu.edu'}>
+								Blackboard
+							</button>
+						</>
+						)}
+						{filters.studentInfo && (
+							<>
+							<button className="mainBtn" onClick={() => window.location.href='https://blackboard.gmu.edu'}>
+								Blackboard
+							</button>
+						</>
+						)}
+        	</div>
+      	</div>
+    	</div>
+  	</div>
   );
 }
 

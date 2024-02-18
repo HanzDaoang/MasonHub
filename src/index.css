@@ -158,7 +158,7 @@ button:hover {
 @keyframes dropdownFadeIn {
   from {
     opacity: 0;
-    transform: translateY(-10px); /* Initial transform */
+    transform: translateY(10px); /* Initial transform */
   }
   to {
     opacity: 1;
