@@ -8,6 +8,8 @@ function App() {
     academics: false,
     opportunities: false,
     resources: false,
+    finance: false,
+    enrollment: false
   });
 
   const handleFilterChange = (filter) => {
@@ -69,6 +71,13 @@ function App() {
               </button>
             </>
           )}
+          {filters.finance && (
+            <>
+            <button onClick={() => window.location.href='https://blackboard.gmu.edu'}>
+            Blackboard
+            </button>
+          </>
+          )}
           {filters.academics && (
             <>
             <button onClick={() => window.location.href='https://blackboard.gmu.edu'}>
@@ -76,17 +85,24 @@ function App() {
             </button>
           </>
           )}
-          {filters.opportunities && (
+          {filters.resources && (
             <>
             <button onClick={() => window.location.href='https://https://patriotweb.gmu.edu/'}>
               PatriotWeb
             </button>
           </>
           )}
-          {filters.resources && (
+          {filters.opportunities && (
             <>
             <button onClick={() => window.location.href='https://https://mason360.gmu.edu/home_login'}>
               Mason360
+            </button>
+          </>
+          )}
+          {filters.enrollment && (
+            <>
+            <button onClick={() => window.location.href='https://blackboard.gmu.edu'}>
+            Blackboard
             </button>
           </>
           )}
