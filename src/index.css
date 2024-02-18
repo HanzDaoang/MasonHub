@@ -48,7 +48,7 @@ body {
   padding: 11px;
   box-sizing: border-box;
   background-color: #f1f1f1;
-  color: #000000;
+  color: #cac700;
 }
 
 .twitter {
@@ -66,20 +66,19 @@ h1 {
 button {
   border-radius: 8px;
   border: 5px solid transparent;
-  padding: 3.3em 4em;
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
   background-color: #1a1a1a;
   cursor: pointer;
-  transition: border-color 0.25s;
+  transition: border-color 0.25s, background-color 0.25s, box-shadow 0.3s, transform 0.3s; /* Include transform in the transition */
 }
+
 button:hover {
   border-color: #187a00;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  background-color: #187a00; /* Change background color on hover */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Add shadow on hover */
+  transform: scale(1.1); /* Make the button slightly bigger on hover */
 }
 
 @media (prefers-color-scheme: light) {

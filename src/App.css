@@ -3,7 +3,9 @@
 }
 
 .card {
-  padding: 10em;
+  padding: 5em 5%;
+  display: flex;
+  gap: 3rem;
 }
 
 .read-the-docs {
