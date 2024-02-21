@@ -1,17 +1,25 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 import './App.css';
 import TwitterFeed from './TwitterFeed';
+import { Calendar, momentLocalizer } from 'react-big-calendar';
+import 'react-big-calendar/lib/css/react-big-calendar.css';
+import moment from 'moment';
+
 
 function App() {
-  const [filters, setFilters] = useState({
+	
+	const [filters, setFilters] = useState({
     showAll: true,
-		finance: false,
+	finance: false,
     academics: false,
-		resources: false,
+	resources: false,
     extracurriculars: false,
     enrollment: false,
-		studentInfo: false
+	studentInfo: false
   });
+
+  const [scrapedData, setScrapedData] = useState(null);
 
   function handleFilterChange(filter) {
     setFilters((prevFilters) => ({
@@ -27,6 +35,39 @@ function App() {
 		return filter === 'showAll' ? 'Show All' : filter.replace(/([a-z])([A-Z])/g, '$1 $2').charAt(0).toUpperCase() + filter.slice(1);
 	}
   
+	const localizer = momentLocalizer(moment);
+
+	const today = new Date();
+
+	// Filter events for today
+	const todayEvents = [
+		// Example events for today
+		{
+		title: 'Event 1',
+		start: new Date(today.getFullYear(), today.getMonth(), today.getDate(), 7, 0),
+		end: new Date(today.getFullYear(), today.getMonth(), today.getDate(), 8, 0),
+		},
+		{
+		title: 'Event 2',
+		start: new Date(today.getFullYear(), today.getMonth(), today.getDate(), 10, 0),
+		end: new Date(today.getFullYear(), today.getMonth(), today.getDate(), 11, 0),
+		},
+		// Add more events as needed
+	];
+
+	useEffect(() => {
+		const fetchData = async () => {
+		  try {
+			const response = await axios.get('http://localhost:5000/scrape');
+			setScrapedData(response.data.data);
+		  } catch (error) {
+			console.error('Error fetching data:', error.message);
+		  }
+		};
+	
+		fetchData();
+	  }, []);
+
   return (
     <div>
 			<div className='Header'>
@@ -116,13 +157,26 @@ function App() {
             	</div>
           	))}
         	</div>
+
+			<div className="today-mason">
+          <h2>Today @ Mason</h2>
+          <ul>
+            {scrapedData &&
+              scrapedData.map((event, index) => (
+                <li key={index}>
+                  {event.time} - {event.title}
+                </li>
+              ))}
+          </ul>
+		  </div>
       	</aside>
 
       	<div className="content">
       		<div className="twitter">
           	<TwitterFeed />
         	</div>
-        	<div className="card">
+        	
+			<div className="card">
           	{filters.showAll && (
             	<>
 								
@@ -216,6 +270,12 @@ function App() {
 									</button>
 									<p class="button-text">Mason Dining</p>
 								</div>
+								<div class="button-container">
+									<button className="mainBtn" onClick={() => window.location.href='https://app.joinhandshake.com/'}>
+										<img src="src\assets\Handshake.jpg" alt="Handshake Icon" style={{ maxWidth: '100%', maxHeight: '100%', }} />
+									</button>
+									<p class="button-text">Handshake</p>
+								</div>
 						</>
 						)}
 						{filters.extracurriculars && (
@@ -248,6 +308,50 @@ function App() {
 								</div>
 						</>
 						)}
+
+			<div className = "calendar-container">
+              <Calendar
+                localizer={localizer}
+                events={[
+                  // Add calendar events here
+                  {
+                    title: '1Eighty Sunday Service',
+                    start: new Date(2024, 1, 18, 7, 0), // Year, Month (0-11), Day, Hour, Minute
+                    end: new Date(2024, 1, 18, 9, 0),
+                  },
+				  {
+                    title: 'Explore your Faith',
+                    start: new Date(2024, 1, 18, 10, 0), // Year, Month (0-11), Day, Hour, Minute
+                    end: new Date(2024, 1, 18, 12, 0),
+                  },
+				  {
+                    title: 'Beta Theta Pi Chapter',
+                    start: new Date(2024, 1, 18, 14, 0), // Year, Month (0-11), Day, Hour, Minute
+                    end: new Date(2024, 1, 18, 15, 0),
+                  },
+				  {
+                    title: 'Zeta Psi Chapter Meeting',
+                    start: new Date(2024, 1, 18, 15, 0), // Year, Month (0-11), Day, Hour, Minute
+                    end: new Date(2024, 1, 18, 16, 0),
+                  },
+				  {
+                    title: 'Fashion Society Show Rehearsal',
+                    start: new Date(2024, 1, 18, 18, 0), // Year, Month (0-11), Day, Hour, Minute
+                    end: new Date(2024, 1, 18, 20, 0),
+                  },
+				  {
+                    title: 'R&B Super Jam',
+                    start: new Date(2024, 1, 18, 20, 0), // Year, Month (0-11), Day, Hour, Minute
+                    end: new Date(2024, 1, 18, 22, 0),
+                  },
+                  // Add more events as needed
+                ]}
+                views={['week']} // Show only the week view
+                defaultView={'week'} // Set the default view to week
+				min={new Date(2024, 1, 20, 7, 0)} // Minimum visible date and time
+          		max={new Date(2024, 1, 20, 23, 0)} // Maximum visible date and time
+              />
+            </div>
         	</div>
       	</div>
     	</div>

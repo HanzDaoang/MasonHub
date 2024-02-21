@@ -6,12 +6,23 @@
   display: flex;
   flex-wrap: wrap;
   width: 50%;
-  margin-left: 100px;
-  margin-top: 100px;
+  margin-left: 70px;
+  margin-top: 50px;
   gap: 3rem;
   padding: 3em;
 }
 
 .read-the-docs {
   color: #888;
+}
+
+.calendar-container {
+  position: fixed;
+  top: 20px; /* Adjust the top position as needed */
+  right: 20px; /* Adjust the right position as needed */
+  width: 500px; /* Set the desired width */
+  height: 350px; /* Set the desired height */
+  border-radius: 8px;
+  overflow: hidden;
+  z-index: 2; /* Ensure the calendar is above other elements */
 }
