@@ -20,7 +20,7 @@ def scrape_calendar(url):
 
             # Extract the event date from the URL
             event_url = event_element.find('a')['href']
-            event_date_str = event_url.split('eventid=')[-1]
+            event_date_str = event_url.split('date=')[-1].split('%')[0]
             event_date = datetime.strptime(event_date_str, '%Y%m%d').date()
 
             if event_date == today:

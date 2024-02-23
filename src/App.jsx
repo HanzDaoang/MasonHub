@@ -19,8 +19,6 @@ function App() {
 	studentInfo: false
   });
 
-  const [scrapedData, setScrapedData] = useState(null);
-
   function handleFilterChange(filter) {
     setFilters((prevFilters) => ({
       ...Object.fromEntries(Object.keys(prevFilters).map(key => [key, false])), // Reset all filters
@@ -39,34 +37,262 @@ function App() {
 
 	const today = new Date();
 
-	// Filter events for today
-	const todayEvents = [
-		// Example events for today
+	const events = [
+		// Add calendar events here
 		{
-		title: 'Event 1',
-		start: new Date(today.getFullYear(), today.getMonth(), today.getDate(), 7, 0),
-		end: new Date(today.getFullYear(), today.getMonth(), today.getDate(), 8, 0),
-		},
-		{
-		title: 'Event 2',
-		start: new Date(today.getFullYear(), today.getMonth(), today.getDate(), 10, 0),
-		end: new Date(today.getFullYear(), today.getMonth(), today.getDate(), 11, 0),
-		},
-		// Add more events as needed
-	];
+			title: '1Eighty Sunday Service',
+			start: new Date(2024, 1, 18, 7, 0), // Year, Month (0-11), Day, Hour, Minute
+			end: new Date(2024, 1, 18, 9, 0),
+		  },
+		  {
+			title: 'Explore your Faith',
+			start: new Date(2024, 1, 18, 10, 0), // Year, Month (0-11), Day, Hour, Minute
+			end: new Date(2024, 1, 18, 12, 0),
+		  },
+		  {
+			title: 'Beta Theta Pi Chapter',
+			start: new Date(2024, 1, 18, 14, 0), // Year, Month (0-11), Day, Hour, Minute
+			end: new Date(2024, 1, 18, 15, 0),
+		  },
+		  {
+			title: 'Zeta Psi Chapter Meeting',
+			start: new Date(2024, 1, 18, 15, 0), // Year, Month (0-11), Day, Hour, Minute
+			end: new Date(2024, 1, 18, 16, 0),
+		  },
+		  {
+			title: 'Fashion Society Show Rehearsal',
+			start: new Date(2024, 1, 18, 18, 0), // Year, Month (0-11), Day, Hour, Minute
+			end: new Date(2024, 1, 18, 20, 0),
+		  },
+		  {
+			title: 'R&B Super Jam',
+			start: new Date(2024, 1, 18, 20, 0), // Year, Month (0-11), Day, Hour, Minute
+			end: new Date(2024, 1, 18, 22, 0),
+		  },
 
-	useEffect(() => {
-		const fetchData = async () => {
-		  try {
-			const response = await axios.get('http://localhost:5000/scrape');
-			setScrapedData(response.data.data);
-		  } catch (error) {
-			console.error('Error fetching data:', error.message);
-		  }
-		};
-	
-		fetchData();
-	  }, []);
+		  // February 19
+		{
+			title: 'Italian Tutoring',
+			start: new Date(2024, 1, 19, 14, 0),
+			end: new Date(2024, 1, 19, 15, 0),
+		},
+		{
+			title: 'Humanity First General Meeting',
+			start: new Date(2024, 1, 19, 16, 30),
+			end: new Date(2024, 1, 19, 17, 30),
+		},
+		{
+			title: 'Corazones Unidos Siempre/CUS eXpresso Neo Edition',
+			start: new Date(2024, 1, 19, 17, 0),
+			end: new Date(2024, 1, 19, 18, 0),
+		},
+		{
+			title: 'Black Arts Club and Hispanic Cultural Review Vibe and Write',
+			start: new Date(2024, 1, 19, 18, 0),
+			end: new Date(2024, 1, 19, 19, 0),
+		},
+		{
+			title: 'GRL MEMBERS ONLY MEETING',
+			start: new Date(2024, 1, 19, 19, 15),
+			end: new Date(2024, 1, 19, 20, 15),
+		},
+		{
+			title: 'Best Buddies PAL-entines Meeting',
+			start: new Date(2024, 1, 19, 19, 30),
+			end: new Date(2024, 1, 19, 20, 30),
+		},
+		// February 20
+		{
+			title: 'Graduate Information Session | Health Administration and Policy',
+			start: new Date(2024, 1, 20, 10, 0),
+			end: new Date(2024, 1, 20, 11, 0),
+		},
+		{
+			title: 'Graduate Admissions Drop-in Hours | Spring 2024',
+			start: new Date(2024, 1, 20, 11, 0),
+			end: new Date(2024, 1, 20, 12, 0),
+		},
+		{
+			title: 'Monster Drink Philanthropy',
+			start: new Date(2024, 1, 20, 12, 0),
+			end: new Date(2024, 1, 20, 13, 0),
+		},
+		{
+			title: 'DesignForce Presentation - Engineers Week',
+			start: new Date(2024, 1, 20, 13, 0),
+			end: new Date(2024, 1, 20, 14, 0),
+		},
+		{
+			title: 'Baseball Game',
+			start: new Date(2024, 1, 20, 14, 0),
+			end: new Date(2024, 1, 20, 15, 0),
+		},
+		{
+			title: 'Worship Day',
+			start: new Date(2024, 1, 20, 15, 0),
+			end: new Date(2024, 1, 20, 16, 0),
+		},
+		{
+			title: 'Persian Club Chai Night Social Gathering',
+			start: new Date(2024, 1, 20, 16, 0),
+			end: new Date(2024, 1, 20, 17, 0),
+		},
+		{
+			title: 'Brushing Boundaries P4P',
+			start: new Date(2024, 1, 20, 17, 30),
+			end: new Date(2024, 1, 20, 18, 30),
+		},
+		{
+			title: 'Mental Health MatterZ',
+			start: new Date(2024, 1, 20, 18, 30),
+			end: new Date(2024, 1, 20, 19, 30),
+		},
+		{
+			title: 'SHH General Body Meeting',
+			start: new Date(2024, 1, 20, 20, 0),
+			end: new Date(2024, 1, 20, 21, 0),
+		},
+		// February 21
+		{
+			title: 'GMU Toastmasters Hybrid Meeting',
+			start: new Date(2024, 1, 21, 12, 0),
+			end: new Date(2024, 1, 21, 13, 0),
+		},
+		{
+			title: 'AMA February General Body Meeting',
+			start: new Date(2024, 1, 21, 14, 0),
+			end: new Date(2024, 1, 21, 15, 0),
+		},
+		{
+			title: 'COMM Ambassadors Meeting',
+			start: new Date(2024, 1, 21, 15, 0),
+			end: new Date(2024, 1, 21, 16, 0),
+		},
+		{
+			title: 'MoviesML Club Meeting',
+			start: new Date(2024, 1, 21, 16, 0),
+			end: new Date(2024, 1, 21, 17, 0),
+		},
+		{
+			title: 'BHM movie night',
+			start: new Date(2024, 1, 21, 17, 0),
+			end: new Date(2024, 1, 21, 18, 0),
+		},
+		{
+			title: 'ASA Trivia Night',
+			start: new Date(2024, 1, 21, 18, 0),
+			end: new Date(2024, 1, 21, 19, 0),
+		},
+		{
+			title: 'Chi Alpha Women\'s Core Group Bible Study',
+			start: new Date(2024, 1, 21, 19, 0),
+			end: new Date(2024, 1, 21, 20, 0),
+		},
+		{
+			title: 'Tasbeha/Worship with Coptic Club!',
+			start: new Date(2024, 1, 21, 20, 0),
+			end: new Date(2024, 1, 21, 21, 0),
+		},
+		{
+			title: 'MSN Wed Hell Week Rehearsal 2024 Spring',
+			start: new Date(2024, 1, 21, 22, 0),
+			end: new Date(2024, 1, 21, 23, 0),
+		},
+		// February 22
+		{
+			title: 'KDC Mythic Open Studio',
+			start: new Date(2024, 1, 22, 11, 0),
+			end: new Date(2024, 1, 22, 12, 0),
+		},
+		{
+			title: 'Pie an Aphi',
+			start: new Date(2024, 1, 22, 12, 0),
+			end: new Date(2024, 1, 22, 13, 0),
+		  },
+		  // February 22
+		{
+			title: 'UNICEF General Body Meeting',
+			start: new Date(2024, 1, 22, 16, 0),
+			end: new Date(2024, 1, 22, 17, 0),
+		},
+		{
+			title: 'Cru Welcome Team Meeting',
+			start: new Date(2024, 1, 22, 17, 0),
+			end: new Date(2024, 1, 22, 18, 0),
+		},
+		{
+			title: '1Eighty Thursday Bible Study',
+			start: new Date(2024, 1, 22, 18, 0),
+			end: new Date(2024, 1, 22, 19, 0),
+		},
+		{
+			title: 'GMU VSA Acting Practice',
+			start: new Date(2024, 1, 22, 19, 30),
+			end: new Date(2024, 1, 22, 20, 30),
+		},
+		{
+			title: 'Cru Large Group',
+			start: new Date(2024, 1, 22, 20, 0),
+			end: new Date(2024, 1, 22, 21, 0),
+		},
+		{
+			title: 'Small Group Day',
+			start: new Date(2024, 1, 22, 21, 0),
+			end: new Date(2024, 1, 22, 22, 0),
+		},
+		// February 23
+		{
+			title: 'GMU VSA Culture Show Practice',
+			start: new Date(2024, 1, 23, 12, 0),
+			end: new Date(2024, 1, 23, 13, 0),
+		},
+		{
+			title: 'JSA Kaiwa Tables',
+			start: new Date(2024, 1, 23, 14, 0),
+			end: new Date(2024, 1, 23, 15, 0),
+		},
+		{
+			title: 'UMMAH Interest Meeting',
+			start: new Date(2024, 1, 23, 15, 0),
+			end: new Date(2024, 1, 23, 16, 0),
+		},
+		{
+			title: 'AFA',
+			start: new Date(2024, 1, 23, 17, 0),
+			end: new Date(2024, 1, 23, 18, 0),
+		},
+		{
+			title: 'Medusa Game Night',
+			start: new Date(2024, 1, 23, 18, 0),
+			end: new Date(2024, 1, 23, 19, 0),
+		},
+		{
+			title: 'Cosplay Club at Mason General Meeting',
+			start: new Date(2024, 1, 23, 19, 30),
+			end: new Date(2024, 1, 23, 20, 30),
+		},
+		{
+			title: 'Nate Bargatze - The Be Funny Tour',
+			start: new Date(2024, 1, 23, 20, 0),
+			end: new Date(2024, 1, 23, 21, 0),
+		},
+		// February 24
+		{
+			title: 'UK101 Practice',
+			start: new Date(2024, 1, 24, 9, 0),
+			end: new Date(2024, 1, 24, 10, 0),
+		},
+		{
+			title: 'Mason Women\'s Basketball vs Richmond',
+			start: new Date(2024, 1, 24, 15, 0),
+			end: new Date(2024, 1, 24, 16, 0),
+		},
+		{
+			title: 'Weekly Movie Night (FAS)',
+			start: new Date(2024, 1, 24, 18, 0),
+			end: new Date(2024, 1, 24, 19, 0),
+		},
+	];
 
   return (
     <div>
@@ -159,16 +385,18 @@ function App() {
         	</div>
 
 			<div className="today-mason">
-          <h2>Today @ Mason</h2>
-          <ul>
-            {scrapedData &&
-              scrapedData.map((event, index) => (
-                <li key={index}>
-                  {event.time} - {event.title}
-                </li>
-              ))}
-          </ul>
-		  </div>
+          	<h2>Today @ Mason</h2>
+          	<ul>
+			  <li>11a KDC Mythic Open Studio</li>
+              <li>12p Pie an Aphi</li>
+              <li>4p UNICEF General Body Meeting</li>
+              <li>5p Cru Welcome Team Meeting</li>
+              <li>6p 1Eighty Thursday Bible Study</li>
+              <li>7:30p GMU VSA Acting Practice</li>
+              <li>8p Cru Large Group</li>
+              <li>9p Small Group Day</li>
+          	</ul>
+		  	</div>
       	</aside>
 
       	<div className="content">
@@ -188,7 +416,7 @@ function App() {
 								</div>
 								
 								<div class="button-container">
-									<button className="mainBtn" onClick={() => window.location.href='https://https://patriotweb.gmu.edu/'}>
+									<button className="mainBtn" onClick={() => window.location.href='https://patriotweb.gmu.edu/'}>
 										<img src="src\assets\PatriotWeb.jpg" alt="Patriot Web" style={{ maxWidth: '100%', maxHeight: '100%', }} />
 									</button>
 									<p class="button-text">PatriotWeb</p>
@@ -239,7 +467,7 @@ function App() {
 									<p class="button-text">TouchNet</p>
 								</div>
 								<div class="button-container">
-									<button className="mainBtn" onClick={() => window.location.href='https://https://patriotweb.gmu.edu/'}>
+									<button className="mainBtn" onClick={() => window.location.href='https://patriotweb.gmu.edu/'}>
 										<img src="src\assets\PatriotWeb.jpg" alt="Patriot Web" style={{ maxWidth: '100%', maxHeight: '100%', }} />
 									</button>
 									<p class="button-text">PatriotWeb</p>
@@ -255,7 +483,7 @@ function App() {
 									<p class="button-text">Blackboard</p>
 								</div>
 								<div class="button-container">
-									<button className="mainBtn" onClick={() => window.location.href='https://https://patriotweb.gmu.edu/'}>
+									<button className="mainBtn" onClick={() => window.location.href='https://patriotweb.gmu.edu/'}>
 										<img src="src\assets\PatriotWeb.jpg" alt="Patriot Web" style={{ maxWidth: '100%', maxHeight: '100%', }} />
 									</button>
 									<p class="button-text">PatriotWeb</p>
@@ -291,7 +519,7 @@ function App() {
 						{filters.enrollment && (
 							<>
 								<div class="button-container">
-									<button className="mainBtn" onClick={() => window.location.href='https://https://patriotweb.gmu.edu/'}>
+									<button className="mainBtn" onClick={() => window.location.href='https://patriotweb.gmu.edu/'}>
 										<img src="src\assets\PatriotWeb.jpg" alt="Patriot Web" style={{ maxWidth: '100%', maxHeight: '100%', }} />
 									</button>
 									<p class="button-text">PatriotWeb</p>
@@ -301,7 +529,7 @@ function App() {
 						{filters.studentInfo && (
 							<>
 								<div class="button-container">
-									<button className="mainBtn" onClick={() => window.location.href='https://https://patriotweb.gmu.edu/'}>
+									<button className="mainBtn" onClick={() => window.location.href='https://patriotweb.gmu.edu/'}>
 										<img src="src\assets\PatriotWeb.jpg" alt="Patriot Web" style={{ maxWidth: '100%', maxHeight: '100%', }} />
 									</button>
 									<p class="button-text">PatriotWeb</p>
@@ -312,45 +540,20 @@ function App() {
 			<div className = "calendar-container">
               <Calendar
                 localizer={localizer}
-                events={[
-                  // Add calendar events here
-                  {
-                    title: '1Eighty Sunday Service',
-                    start: new Date(2024, 1, 18, 7, 0), // Year, Month (0-11), Day, Hour, Minute
-                    end: new Date(2024, 1, 18, 9, 0),
-                  },
-				  {
-                    title: 'Explore your Faith',
-                    start: new Date(2024, 1, 18, 10, 0), // Year, Month (0-11), Day, Hour, Minute
-                    end: new Date(2024, 1, 18, 12, 0),
-                  },
-				  {
-                    title: 'Beta Theta Pi Chapter',
-                    start: new Date(2024, 1, 18, 14, 0), // Year, Month (0-11), Day, Hour, Minute
-                    end: new Date(2024, 1, 18, 15, 0),
-                  },
-				  {
-                    title: 'Zeta Psi Chapter Meeting',
-                    start: new Date(2024, 1, 18, 15, 0), // Year, Month (0-11), Day, Hour, Minute
-                    end: new Date(2024, 1, 18, 16, 0),
-                  },
-				  {
-                    title: 'Fashion Society Show Rehearsal',
-                    start: new Date(2024, 1, 18, 18, 0), // Year, Month (0-11), Day, Hour, Minute
-                    end: new Date(2024, 1, 18, 20, 0),
-                  },
-				  {
-                    title: 'R&B Super Jam',
-                    start: new Date(2024, 1, 18, 20, 0), // Year, Month (0-11), Day, Hour, Minute
-                    end: new Date(2024, 1, 18, 22, 0),
-                  },
-                  // Add more events as needed
-                ]}
+                events={events}
                 views={['week']} // Show only the week view
                 defaultView={'week'} // Set the default view to week
 				min={new Date(2024, 1, 20, 7, 0)} // Minimum visible date and time
           		max={new Date(2024, 1, 20, 23, 0)} // Maximum visible date and time
-              />
+				onSelectEvent={(event) => {
+					const eventDetails = `
+                    Title: ${event.title}
+                    Start: ${moment(event.start).format('LLL')}
+                    End: ${moment(event.end).format('LLL')}`;
+
+                  alert(eventDetails);
+                }}
+			  />
             </div>
         	</div>
       	</div>
